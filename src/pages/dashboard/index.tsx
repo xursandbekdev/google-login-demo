@@ -4,7 +4,6 @@ import React from "react";
 const Dashboard:React.FC = () => {
   const userEmail = localStorage.getItem("userEmail");
   const loginTime = localStorage.getItem("loginTime");
-
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold">Dashboard</h1>

@@ -1,17 +1,29 @@
 import React from 'react';
 import { auth, provider, signInWithPopup } from '../../firebase';
 import GoogleImage from "../../../public/googleLogo.png"
+import { useNavigate } from "react-router-dom";
 const Login: React.FC = () => {
 
-  const handleGoogleLogin = async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-      console.log("Google logged in user:", user);
-    } catch (error) {
-      console.error("Google login error:", error);
-    }
-  };
+    const navigate = useNavigate();
+
+    const handleGoogleLogin = async () => {
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+    
+        const loginTime = new Date().toLocaleString();
+        localStorage.setItem("userEmail", user.email || "No Email");
+        localStorage.setItem("loginTime", loginTime);
+    
+        console.log("Google logged in user:", user);
+    
+        // Navigate to the home page
+        navigate("/home");
+      } catch (error) {
+        console.error("Google login error:", error);
+      }
+    };
+      
 
   return (
     <div className="min-h-screen flex justify-center items-center bg-gray-100">
