@@ -29,8 +29,6 @@ const Login: React.FC = () => {
     <div className="min-h-screen flex justify-center items-center bg-gray-100">
       <div className="bg-white p-8 rounded shadow-lg w-full max-w-md">
         <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
-        
-
         <div className="text-center mt-6">
           <button 
             onClick={handleGoogleLogin}
